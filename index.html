@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCOOTEE | سكوترات كهربائية</title>
+
+<style>
+:root {
+  --bg: #0b0d0c;
+  --panel: #151917;
+  --muted: #aab3ad;
+  --accent: #b7e36b;
+  --line: #29312c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 80% 10%, #243322 0, transparent 30%), var(--bg);
+  color: #f5f7f4;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+header {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  color: #d0d7d1;
+  font-size: 14px;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero {
+  max-width: 1180px;
+  margin: 45px auto;
+  padding: 20px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+  min-height: 570px;
+}
+
+.tag {
+  display: inline-block;
+  color: var(--accent);
+  border: 1px solid #b7e36b55;
+  border-radius: 30px;
+  padding: 9px 15px;
+  font-size: 13px;
+}
+
+h1 {
+  font-size: clamp(38px, 5vw, 65px);
+  line-height: 1.2;
+  margin: 22px 0 14px;
+}
+
+h1 span {
+  color: var(--accent);
+}
+
+.desc {
+  color: var(--muted);
+  line-height: 2;
+  font-size: 17px;
+  max-width: 500px;
+}
+
+.price {
+  font-size: 42px;
+  font-weight: 900;
+  margin: 22px 0;
+}
+
+.price small {
+  font-size: 16px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 15px 25px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.primary {
+  background: var(--accent);
+  color: #10150c;
+}
+
+.secondary {
+  border: 1px solid #566257;
+  color: #fff;
+  background: transparent;
+}
+
+.visual {
+  background: linear-gradient(145deg, #202923, #111613);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.visual:before {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: #b7e36b18;
+}
+
+.scooter {
+  width: 95%;
+  max-width: 570px;
+  z-index: 1;
+  filter: drop-shadow(0 25px 20px #0009);
+}
+
+.color-name {
+  position: absolute;
+  bottom: 22px;
+  right: 25px;
+  color: #cbd4cd;
+  font-size: 13px;
+}
+
+.section {
+  max-width: 1120px;
+  margin: 25px auto 80px;
+  padding: 0 25px;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.feature {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 24px;
+  border-radius: 18px;
+}
+
+.feature b {
+  display: block;
+  color: var(--accent);
+  font-size: 23px;
+  margin-bottom: 9px;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.colors {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid #ffffff40;
+  cursor: pointer;
+}
+
+.swatch.active {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.color-label {
+  font-size: 14px;
+  color: var(--muted);
+  margin-right: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #87928a;
+  border-top: 1px solid #ffffff12;
+  font-size: 13px;
+}
+
+@media(max-width:760px) {
+  nav {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    margin: 20px auto;
+    gap: 20px;
+  }
+
+  .visual {
+    min-height: 300px;
+    grid-row: 1;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+
+  header {
+    padding: 0 22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">SCOOTEE<span>.</span></div>
+
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#features">المواصفات</a>
+    <a href="#order">اطلب الآن</a>
+  </nav>
+
+  <div style="color:#b7e36b;font-size:13px">
+    سكوترات كهربائية
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+
+<div>
+  <div class="tag">تنقّل أذكى • تصميم عصري</div>
+
+  <h1>
+    طريقك أسهل مع<br>
+    <span>SCOOTEE</span>
+  </h1>
+
+  <p class="desc">
+    استمتع بتنقّل عملي ومريح مع سكوتر كهربائي
+    بتصميم أنيق، مناسب لمشاويرك اليومية.
+  </p>
+
+  <div class="price">
+    400 <small>السعر</small>
+  </div>
+
+  <div class="colors">
+    <span class="color-label">اختر اللون:</span>
+
+    <button class="swatch active"
+      style="background:#171918"
+      aria-label="أسود"
+      data-color="أسود"
+      data-fill="#171918"></button>
+
+    <button class="swatch"
+      style="background:#657344"
+      aria-label="زيتي"
+      data-color="زيتي"
+      data-fill="#657344"></button>
+
+    <button class="swatch"
+      style="background:#bd3038"
+      aria-label="أحمر"
+      data-color="أحمر"
+      data-fill="#bd3038"></button>
+
+    <strong id="selectedColor">أسود</strong>
+  </div>
+
+  <div class="actions">
+    <a class="btn primary" href="#order">
+      اطلب السكوتر الآن
+    </a>
+
+    <a class="btn secondary" href="#features">
+      اكتشف المواصفات
+    </a>
+  </div>
+</div>
+
+<div class="visual">
+
+<svg class="scooter" viewBox="0 0 620 390">
+
+<circle cx="155" cy="300" r="57"
+fill="#090b0a" stroke="#68736b" stroke-width="12"/>
+
+<circle cx="155" cy="300" r="18" fill="#9ca89d"/>
+
+<circle cx="475" cy="300" r="57"
+fill="#090b0a" stroke="#68736b" stroke-width="12"/>
+
+<circle cx="475" cy="300" r="18" fill="#9ca89d"/>
+
+<path d="M155 290 L205 290 L260 300 L460 300 Q478 300 478 281 L478 270 L245 270 L211 250 L180 250Z"
+fill="url(#deck)" />
+
+<defs>
+<linearGradient id="deck" x1="0" x2="1">
+<stop stop-color="#dce6d8"/>
+<stop offset="1" stop-color="#69756a"/>
+</linearGradient>
+</defs>
+
+<path d="M204 275 L278 88 L290 88 L231 278"
+fill="#171918" stroke="#c8d2c9"
+stroke-width="13" stroke-linejoin="round"/>
+
+<path d="M278 88 L282 65 L350 65"
+fill="none" stroke="#dce5dc"
+stroke-width="12" stroke-linecap="round"/>
+
+<path d="M276 88 L290 88"
+stroke="#b7e36b" stroke-width="16"
+stroke-linecap="round"/>
+
+<path d="M455 280 L455 270 L455 250"
+stroke="#dce5dc" stroke-width="9"/>
+
+<path d="M438 250 L473 250"
+stroke="#dce5dc" stroke-width="9"
+stroke-linecap="round"/>
+
+<path d="M235 271 L448 271"
+stroke="#171918" stroke-width="12"
+stroke-linecap="round"/>
+
+</svg>
+
+<div class="color-name">
+SCOOTEE • ELECTRIC SCOOTER
+</div>
+
+</div>
+</section>
+
+<section class="section" id="features">
+
+<h2>المواصفات الرئيسية</h2>
+
+<div class="features">
+
+<div class="feature">
+<b>20 ميل/ساعة</b>
+<p>سرعة السكوتر تصل إلى 20 ميل في الساعة.</p>
+</div>
+
+<div class="feature">
+<b>20–35 كم</b>
+<p>مدى الاستخدام من 20 إلى 35 كيلومترًا للشحنة.</p>
+</div>
+
+<div class="feature">
+<b>3 ألوان</b>
+<p>متوفر باللون الأسود والزيتي والأحمر.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="order">
+
+<h2>جاهز تطلبه؟</h2>
+
+<div class="feature">
+<p>
+للطلب أو للاستفسار عن التوفر والتوصيل،
+حدد اللون الذي تفضله:
+<strong id="orderColor">أسود</strong>.
+</p>
+
+<div class="actions" style="margin-top:18px">
+<a class="btn primary" href="mailto:">
+تواصل للطلب
+</a>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+© 2026 SCOOTEE — جميع الحقوق محفوظة
+</footer>
+
+<script>
+document.querySelectorAll('.swatch').forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    document.querySelectorAll('.swatch')
+      .forEach(x => x.classList.remove('active'));
+
+    btn.classList.add('active');
+
+    document.getElementById('selectedColor').textContent =
+      btn.dataset.color;
+
+    document.getElementById('orderColor').textContent =
+      btn.dataset.color;
+
+    document.querySelectorAll(
+      '.scooter path[fill="#171918"]'
+    ).forEach(p => {
+      p.setAttribute('fill', btn.dataset.fill);
+    });
+
+    document.querySelector(
+      '.scooter path[stroke="#171918"]'
+    ).setAttribute('stroke', btn.dataset.fill);
+
+  });
+
+});
+</script>
+
+</body>
+</html>
